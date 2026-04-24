@@ -1,7 +1,7 @@
 # ---- Stage 1: Build frontend ----
 FROM node:20-alpine AS frontend-builder
 
-WORKDIR /app/frontend
+WORKDIR /app/frontend/dist
 COPY frontend/package.json frontend/package-lock.json* ./
 RUN npm install --frozen-lockfile 2>/dev/null || npm install
 
@@ -31,7 +31,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY backend/ .
 
 # Frontend build output → serve as static files
-COPY --from=frontend-builder /app/frontend/dist ./static
+COPY --from=frontend-builder /app/dist ./static
 
 # Serve static files from FastAPI
 RUN mkdir -p data/uploads data/indexes
