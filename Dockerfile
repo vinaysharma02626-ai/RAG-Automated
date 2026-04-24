@@ -31,7 +31,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY backend/ .
 
 # Frontend build output → serve as static files
-COPY --from=frontend-builder /app/frontend/dist ./static
+COPY --from=frontend-builder /app/dist ./static
 
 # Serve static files from FastAPI
 RUN mkdir -p data/uploads data/indexes
