@@ -1,0 +1,13 @@
+# Root .env for docker-compose
+# These are passed into the container as environment variables.
+# Copy to .env and fill in your values.
+
+LLM_PROVIDER=groq
+LLM_MODEL=llama-3.1-8b-instant
+LLM_API_KEY=your_groq_api_key_here
+
+EMBEDDING_PROVIDER=local
+EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
+EMBEDDING_DIM=384
+
+DEBUG=false
